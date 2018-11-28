@@ -24,6 +24,11 @@ visualizer = Visualizer(opt)
 web_dir = os.path.join(opt.results_dir, opt.name, '%s_%s' % (opt.phase, opt.which_epoch))
 webpage = html.HTML(web_dir, 'Experiment = %s, Phase = %s, Epoch = %s' % (opt.name, opt.phase, opt.which_epoch))
 
+print("##########################")
+print("CUDA SANITY CHECK")
+print(torch.cuda.is_available())
+print(torch.cuda.get_device_name(0))
+
 # test
 if not opt.engine and not opt.onnx:
     model = create_model(opt)
